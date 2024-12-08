@@ -4,6 +4,69 @@ header .nav-wrapper {
   width: 100%;
   z-index: 2;
   position: fixed;
+  padding: 10px 0;
+  border-bottom: 2px solid #EBEBEB;
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .26);
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (width >= 900px) {
+  header .nav-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
+header .nav-wrapper.remove-top-nav-bar {
+  top: 0;
+}
+
+header .top-nav-bar {
+  background-color: #EBEBEB;
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .26);
+}
+
+header .top-nav-bar .top-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 24px 5px 5px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+@media (width >= 900px) {
+  header .top-nav-bar .top-header {
+    padding: 5px 32px 5px 5px;
+  }
+}
+
+header .top-nav-bar .top-header .top-header-title {
+  border-right: 1px solid;
+  margin-right: 10px;
+  padding-right: 10px;
+  font-size: 14px;
+}
+
+header .top-nav-bar .top-header .header-currency {
+  font-size: 14px;
+  background: none;
+  border: none;
+}
+
+header .top-nav-bar .top-header .header-currency::after {
+  content: '|';
+  display: block;
+}
+
+.divider {
+  margin: 0 5px;
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
 header nav {
@@ -17,7 +80,6 @@ header nav {
   margin: auto;
   max-width: 1248px;
   height: var(--nav-height);
-  padding: 0 24px;
   font-family: var(--body-font-family);
 }
 
@@ -36,7 +98,7 @@ header nav[aria-expanded='true'] {
     justify-content: space-between;
     gap: 0 32px;
     max-width: 1264px;
-    padding: 0 32px;
+    padding: 0 24px;
   }
 
   header nav[aria-expanded='true'] {
@@ -145,14 +207,20 @@ header .nav-brand {
 }
 
 header nav .nav-brand img {
-  width: 128px;
+  width: 72px;
   height: auto;
+}
+
+@media (width >= 900px) {
+  header nav .nav-brand img {
+    width: 128px;
+    height: auto;
+  }
 }
 
 /* sections */
 header nav .nav-sections {
   grid-area: sections;
-  flex: 1 1 auto;
   display: none;
   visibility: hidden;
 }
@@ -171,14 +239,64 @@ header nav .nav-sections ul {
 
 header nav .nav-sections ul > li {
   font-weight: 500;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+@media (width >= 900px) {
+  header nav .nav-sections ul > li {
+    position: static;
+  }
+}
+
+@media (width >= 900px) {
+  header nav .nav-sections ul > li {
+    font-weight: 500;
+    padding-bottom: 0;
+    display: block;
+  }
 }
 
 header nav .nav-sections ul > li > ul {
   margin-top: 0;
+  display: none;
 }
 
 header nav .nav-sections ul > li > ul > li {
   font-weight: 400;
+  padding-bottom: 0;
+  padding-top: 8px;
+}
+
+header nav .nav-sections .nav-drop.is-active ul {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+  padding-left: 24px;
+}
+
+header nav .nav-sections .nav-drop.is-active {
+  display: block;
+}
+
+header nav .nav-sections .nav-drop::after {
+  content: '';
+  display: inline-block;
+  right: 2px;
+  transform: rotate(135deg);
+  width: 8px;
+  height: 8px;
+  border: 2px solid currentcolor;
+  border-radius: 0 1px 0 0;
+  border-width: 2px 2px 0 0;
+  position: absolute;
+  right: 42px;
+  top: 8px;
+}
+
+header nav .nav-sections .nav-drop.is-active::after {
+  transform: rotate(-45deg);
+  top: 10px;
 }
 
 @media (width >= 900px) {
@@ -193,7 +311,6 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   header nav .nav-sections .nav-drop {
-    position: relative;
     padding-right: 16px;
     cursor: pointer;
   }
@@ -201,15 +318,16 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .nav-drop::after {
     content: '';
     display: inline-block;
-    position: absolute;
-    top: 0.5em;
     right: 2px;
     transform: rotate(135deg);
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     border: 2px solid currentcolor;
     border-radius: 0 1px 0 0;
     border-width: 2px 2px 0 0;
+    position: relative;
+    top: -2px;
+    left: 2px;
   }
 
   header nav .nav-sections .nav-drop[aria-expanded='true']::after {
@@ -226,12 +344,67 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
-    position: relative;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
     display: none;
     position: relative;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > .nav-drop:hover > ul {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    background-color: #FFFFFF;
+    left: 0;
+    justify-content: space-evenly;
+    padding: 24px 0;
+    border-bottom: 2px solid #CCCCCC;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, .26);
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > .nav-drop:hover > ul > li {
+    padding-top: 32px;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > .nav-drop:hover > ul::after {
+    content: '';
+    width: 100%;
+    display: block;
+    position: absolute;
+    height: 2px;
+    background-color: #CCCCCC;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > .nav-drop:hover::after {
+    content: '';
+    display: inline-block;
+    right: 2px;
+    transform: rotate(-45deg);
+    width: 8px;
+    height: 8px;
+    border: 2px solid currentcolor;
+    border-radius: 0 1px 0 0;
+    border-width: 2px 2px 0 0;
+    position: relative;
+    top: 4px;
+    left: 2px;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > .nav-drop > u {
+    text-decoration: none;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > .nav-drop > u {
+    text-decoration: none;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > u {
+    text-decoration: none;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > .nav-drop:hover {
+    text-decoration: underline;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
@@ -245,18 +418,6 @@ header nav .nav-sections ul > li > ul > li {
     white-space: initial;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 16px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--light-color);
-  }
-
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
     padding: 8px 0;
   }
@@ -265,4 +426,30 @@ header nav .nav-sections ul > li > ul > li {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+}
+
+header nav .nav-tools p {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  padding-right: 40px;
+}
+
+@media (width >= 900px) {
+  header nav .nav-tools p {
+    font-size: initial;
+    padding-right: 0;
+  }
+}
+
+header nav .nav-tools p span {
+  padding-left: 4px;
+  height: 16px;
+}
+
+@media (width >= 900px) {
+  header nav .nav-tools p span {
+    height: initial;
+    padding-left: 16px;
+  }
 }

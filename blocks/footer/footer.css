@@ -18,3 +18,55 @@ footer .footer p {
     padding: 40px 32px 24px;
   }
 }
+
+footer .footer > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media (width >= 900px) {
+footer .footer > div {
+  display: flex;
+  gap: 24px;
+  flex-wrap: nowrap;
+  }
+}
+
+footer .footer > div .section {
+  width: 46%;
+}
+
+footer .footer > div .section:last-of-type {
+  width: 100%;
+}
+
+
+@media (width >= 900px) {
+footer .footer > div .section {
+  min-width: 200px;
+  }
+}
+
+footer .footer > div .section .default-content-wrapper p {
+  line-height: 32px;
+}
+
+footer .footer > div .section .default-content-wrapper p .icon {
+  padding-right: 16px;
+  padding-top: 16px;
+}
+
+footer .footer > div .section .default-content-wrapper #follow-us + p {
+  line-height: 24px;
+}
+
+footer .footer > div .section .default-content-wrapper #subscribe-to-venia + p {
+  line-height: 24px;
+}
+
+footer .footer > div .section .default-content-wrapper h3 {
+  font-size: 16px;
+  font-family: 'roboto';
+  font-weight: 500;
+}

@@ -26,13 +26,13 @@ function closeOnFocusLost(e) {
   if (!nav.contains(e.relatedTarget)) {
     const navSections = nav.querySelector('.nav-sections');
     const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
-    if (navSectionExpanded && isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
-      toggleAllNavSections(navSections, false);
-    } else if (!isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
-      toggleMenu(nav, navSections, false);
-    }
+    // if (navSectionExpanded && isDesktop.matches) {
+    //   // eslint-disable-next-line no-use-before-define
+    //   toggleAllNavSections(navSections, false);
+    // } else if (!isDesktop.matches) {
+    //   // eslint-disable-next-line no-use-before-define
+    //   toggleMenu(nav, navSections, false);
+    // }
   }
 }
 
@@ -103,6 +103,25 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
+function mobileNavView() {
+  var navItems = document.getElementsByClassName("nav-drop");
+  for (var i = 0; i < navItems.length; i++) {
+    navItems[i].onclick = function () {
+      var setClasses = !this.classList.contains('is-active');
+      setClass(navItems, 'is-active', 'remove');
+
+      if (setClasses) {
+        this.classList.toggle("is-active");
+      }
+    }
+  }
+  function setClass(els, className, fnName) {
+    for (var i = 0; i < els.length; i++) {
+      els[i].classList[fnName](className);
+    }
+  }
+}
+
 /**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -163,4 +182,35 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  const topNavBar = document.createElement("div");
+  topNavBar.classList.add("top-nav-bar");
+  block.prepend(topNavBar);
+
+  topNavBar.innerHTML = '<div class="top-header">' +
+    '<select class="header-currency">' +
+    '<option value="USD">Main Website Store - Default Store View</option>' +
+    '<option value="EUR">Main Website Store - Demo Store View2</option>' +
+    '<option value="EUR">Second Store - Second Store V1</option>' +
+    '<option value="EUR">Second Store - Second Store View2</option>' +
+    '</select>' +
+    `<div class='divider'>|</div>`+
+    '<select class="header-currency">' +
+    '<option value="USD">$ USD</option>' +
+    '<option value="EUR"># EUR</option>' +
+    '</select>' +
+    '</div>';
+  block.append(navWrapper);
+
+  mobileNavView();
+
 }
+
+window.onscroll = function () {
+  var header = document?.querySelector(".nav-wrapper");
+  if (window.pageYOffset > 0) {
+    header?.classList.add("remove-top-nav-bar");
+  } else {
+    header?.classList.remove("remove-top-nav-bar");
+  }
+};
