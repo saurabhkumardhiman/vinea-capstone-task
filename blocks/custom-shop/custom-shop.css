@@ -1,0 +1,47 @@
+.custom-shop > div {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.custom-shop > div div:last-of-type {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+}
+
+.custom-shop > div div picture img {
+    width: 100%;
+}
+
+.custom-shop > div > div > h3 {
+    font-size: clamp(1rem, -0.25rem + 11.1111vw, 2.25rem);
+    font-family: Roboto, Arial, sans-serif;
+    font-weight: 400;
+    color: #FFF;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 16px;
+}
+
+.custom-shop > div > div > p {
+    font-size: 16px;
+    font-family: Roboto, Arial, sans-serif;
+    font-weight: 400;
+    color: #FFF;
+    text-align: center;
+    margin: 0;
+}
+
+@media (width >= 900px) {
+    .custom-shop {
+        display: flex;
+        gap: 24px;
+    }
+
+    .custom-shop > div > div > h3 {
+        font-size: clamp(2.25rem, -0.25rem + 4.4444vw, 3.75rem);
+    }
+}
+

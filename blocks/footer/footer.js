@@ -17,4 +17,11 @@ export default async function decorate(block) {
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
   block.append(footer);
+
+  const footerCopyright = document.createElement('div');
+  footerCopyright.classList.add('bottom-footer');
+  const footerDiv = document.querySelector('.section.footer-copyright');
+
+  document.querySelector('.footer.block').appendChild(footerCopyright);
+  footerCopyright.appendChild(footerDiv);
 }

@@ -6,7 +6,7 @@ header .nav-wrapper {
   position: fixed;
   padding: 10px 0;
   border-bottom: 2px solid #EBEBEB;
-  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .26);
+  box-shadow: 0 8px 20px 0 #00000042;
   padding-left: 24px;
   padding-right: 24px;
 }
@@ -25,7 +25,7 @@ header .nav-wrapper.remove-top-nav-bar {
 
 header .top-nav-bar {
   background-color: #EBEBEB;
-  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .26);
+  box-shadow: 0 8px 20px 0 #00000042;
 }
 
 header .top-nav-bar .top-header {
@@ -65,8 +65,7 @@ header .top-nav-bar .top-header .header-currency::after {
 }
 
 select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
+  appearance: none;
 }
 
 header nav {
@@ -251,7 +250,7 @@ header nav .nav-sections ul > li {
 
 @media (width >= 900px) {
   header nav .nav-sections ul > li {
-    font-weight: 500;
+    font-weight: 400;
     padding-bottom: 0;
     display: block;
   }
@@ -282,7 +281,6 @@ header nav .nav-sections .nav-drop.is-active {
 header nav .nav-sections .nav-drop::after {
   content: '';
   display: inline-block;
-  right: 2px;
   transform: rotate(135deg);
   width: 8px;
   height: 8px;
@@ -351,16 +349,31 @@ header nav .nav-sections .nav-drop.is-active::after {
     position: relative;
   }
 
+  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
+    display: block;
+    position: absolute;
+    left: -24px;
+    width: 200px;
+    top: 150%;
+    padding: 16px;
+    background-color: var(--light-color);
+    white-space: initial;
+  }
+
   header nav .nav-sections .default-content-wrapper > ul > .nav-drop:hover > ul {
     display: flex;
     position: absolute;
     width: 100%;
-    background-color: #FFFFFF;
+    background-color: #FFF;
     left: 0;
     justify-content: space-evenly;
     padding: 24px 0;
-    border-bottom: 2px solid #CCCCCC;
-    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, .26);
+    border-bottom: 2px solid #CCC;
+    box-shadow: 0 8px 10px 0 #00000042;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
+    padding: 8px 0;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > .nav-drop:hover > ul > li {
@@ -373,7 +386,7 @@ header nav .nav-sections .nav-drop.is-active::after {
     display: block;
     position: absolute;
     height: 2px;
-    background-color: #CCCCCC;
+    background-color: #CCC;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > .nav-drop:hover::after {
@@ -391,35 +404,16 @@ header nav .nav-sections .nav-drop.is-active::after {
     left: 2px;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > .nav-drop > u {
-    text-decoration: none;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > .nav-drop > u {
-    text-decoration: none;
-  }
-
   header nav .nav-sections .default-content-wrapper > ul > li > u {
+    text-decoration: none;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > .nav-drop > u {
     text-decoration: none;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > .nav-drop:hover {
     text-decoration: underline;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
-    display: block;
-    position: absolute;
-    left: -24px;
-    width: 200px;
-    top: 150%;
-    padding: 16px;
-    background-color: var(--light-color);
-    white-space: initial;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
   }
 }
 
