@@ -50,7 +50,6 @@ function fetchDetails(allUrls) {
 }
 
 function createTopSellerCarousel(items) {
-
   const topSellerCarouselContainer = document.createElement('div');
   topSellerCarouselContainer.classList.add('top-seller-carousel-container');
 
