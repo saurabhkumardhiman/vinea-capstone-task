@@ -7,12 +7,20 @@
 }
 
 .product-details > div > div > p {
-    font-size: 24px;
+    font-size: 20px;
     margin: 0;
     padding-bottom: 8px;
-    display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.product-details > div > div > ul {
+    padding: 0;
+}
+
+.product-details > div > div > ul li {
+    list-style: none;
+    font-size: 16px;
 }
 
 .product-details > div > div > p picture img {
@@ -31,6 +39,8 @@
     width: 100%;
     border: none;
     margin-left: 8px;
+    position: relative;
+    top: 7px;
 }
 
 @media (width >= 900px) {
