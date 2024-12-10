@@ -77,7 +77,6 @@ footer .footer>div .section .default-content-wrapper h3 {
 
 footer .bottom-footer {
   border-top: 1px solid #EBEBEB;
-  padding: 16px 0;
 }
 
 footer .bottom-footer .section.footer-copyright {
@@ -95,6 +94,10 @@ footer .bottom-footer .section.footer-copyright .default-content-wrapper {
 }
 
 @media (width >=900px) {
+  footer .bottom-footer {
+    padding: 8px 0 !important;
+  }
+  
   footer .bottom-footer .section.footer-copyright .default-content-wrapper {
     display: flex;
     align-items: center;
