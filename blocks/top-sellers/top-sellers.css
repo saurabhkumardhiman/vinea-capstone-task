@@ -1,0 +1,133 @@
+.top-sellers {
+    padding-top: 40px;
+}
+
+.section.top-sellers-heading .default-content-wrapper h3 {
+    font-size: 32px;
+    font-family: Roboto, Arial, sans-serif;
+    color: #202020;
+    display: flex;
+    justify-content: center;
+}
+
+.top-sellers .top-sellers-div .top-seller-carousel-container .top-sellers-list {
+    padding-left: 0;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.top-sellers .top-sellers-div .top-seller-carousel-container .top-sellers-list .top-sellers-item picture img {
+    border: 1px solid #CCC;
+    aspect-ratio: 3/4;
+    width: 98%;
+    height: 33%;
+}
+
+.top-sellers .top-sellers-div .top-seller-carousel-container .top-sellers-list .top-sellers-item p.top-sellers-title {
+    font-size: 16px;
+    color: #202020;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.top-sellers .top-sellers-div .top-seller-carousel-container .top-sellers-list .top-sellers-item p.top-sellers-description {
+    color: grey;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
+.top-sellers .top-sellers-div .top-seller-carousel-container .top-sellers-list .top-sellers-item a {
+    font-size: 14px;
+    background-color: #2954FF;
+    color: #FFF;
+    padding: 5px 8px;
+    border-radius: 25px;
+}
+
+.top-sellers .top-sellers-div .top-seller-carousel-container .top-sellers-list .top-sellers-item .wishlist-icon {
+    font-size: 28px;
+    position: relative;
+    top: 5px;
+    padding-left: 3px;
+    display: inline-block;
+}
+
+.top-seller-carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.top-seller-carousel-wrapper {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.top-sellers-item {
+    list-style: none;
+}
+
+.carousel-button {
+    display: none;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #202020;
+}
+
+.dot:hover {
+    background-color: #202020;
+}
+
+@media (width >= 900px) {
+    .section.top-sellers-heading .default-content-wrapper h3 {
+        font-size: 48px;
+    }
+
+    .top-sellers .top-sellers-div .top-seller-carousel-container .top-sellers-list .top-sellers-item p.top-sellers-title {
+        font-size: 18px;
+    }
+
+    .top-sellers .top-sellers-div .top-seller-carousel-container .top-sellers-list .top-sellers-item p.top-sellers-description {
+        font-size: 16px;
+    }
+
+    .top-sellers .top-sellers-div .top-seller-carousel-container .top-sellers-list .top-sellers-item picture img {
+        height: 41%;
+    }
+
+    .top-sellers .top-sellers-div .top-seller-carousel-container .top-sellers-list .top-sellers-item a {
+        font-size: 16px;
+    }
+}
