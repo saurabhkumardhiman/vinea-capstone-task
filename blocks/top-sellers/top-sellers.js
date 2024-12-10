@@ -50,6 +50,7 @@ function fetchDetails(allUrls) {
 }
 
 function createTopSellerCarousel(items) {
+
   const topSellerCarouselContainer = document.createElement('div');
   topSellerCarouselContainer.classList.add('top-seller-carousel-container');
 
@@ -57,20 +58,10 @@ function createTopSellerCarousel(items) {
   topSellerCarouselWrapper.classList.add('top-seller-carousel-wrapper');
   topSellerCarouselWrapper.appendChild(items);
 
-  const topSellerPrevBtn = document.createElement('button');
-  topSellerPrevBtn.classList.add('carousel-button', 'prev');
-  topSellerPrevBtn.innerHTML = 'Prev';
-
-  const topSellerNextBtn = document.createElement('button');
-  topSellerNextBtn.classList.add('carousel-button', 'next');
-  topSellerNextBtn.innerHTML = 'Next';
-
   const topSellerDotsContainer = document.createElement('div');
   topSellerDotsContainer.classList.add('carousel-dots');
 
-  topSellerCarouselContainer.append(topSellerPrevBtn);
   topSellerCarouselContainer.append(topSellerCarouselWrapper);
-  topSellerCarouselContainer.append(topSellerNextBtn);
   topSellerCarouselContainer.append(topSellerDotsContainer);
 
   let currentPage = 0;
@@ -82,7 +73,7 @@ function createTopSellerCarousel(items) {
 
   const totalPages = Math.ceil(items.childElementCount / itemsPerPage);
 
-  function updateCarousel() {
+  function updateSellerCarousel() {
     const startIndex = currentPage * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
 
@@ -90,8 +81,8 @@ function createTopSellerCarousel(items) {
       item.style.display = index >= startIndex && index < endIndex ? 'block' : 'none';
     });
 
-    const dots = topSellerDotsContainer.querySelectorAll('.dot');
-    dots.forEach((dot, index) => {
+    const naigationDots = topSellerDotsContainer.querySelectorAll('.dot');
+    naigationDots.forEach((dot, index) => {
       if (index === currentPage) {
         dot.classList.add('active');
       } else {
@@ -111,28 +102,14 @@ function createTopSellerCarousel(items) {
       dot.classList.add('dot');
       dot.addEventListener('click', () => {
         updateCurrentPage(pageIndex);
-        updateCarousel();
+        updateSellerCarousel();
       });
       topSellerDotsContainer.appendChild(dot);
     }
   }
 
   createDots();
-  updateCarousel();
-
-  topSellerPrevBtn.addEventListener('click', () => {
-    if (currentPage > 0) {
-      currentPage -= 1;
-      updateCarousel();
-    }
-  });
-
-  topSellerNextBtn.addEventListener('click', () => {
-    if (currentPage < totalPages - 1) {
-      currentPage += 1;
-      updateCarousel();
-    }
-  });
+  updateSellerCarousel();
 
   return topSellerCarouselContainer;
 }
