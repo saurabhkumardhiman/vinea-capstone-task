@@ -66,11 +66,38 @@ function createTopSellerCarousel(items) {
   let currentPage = 0;
   let itemsPerPage = 2;
 
-  if (window.innerWidth >= 900) {
-    itemsPerPage = 5;
+  function updateItemsPerPage() {
+    if (window.innerWidth >= 900) {
+      itemsPerPage = 5;
+    } else {
+      itemsPerPage = 2;
+    }
   }
 
-  const totalPages = Math.ceil(items.childElementCount / itemsPerPage);
+  function updateDots() {
+    const totalPages = Math.ceil(items.childElementCount / itemsPerPage);
+    topSellerDotsContainer.innerHTML = '';
+
+    for (let i = 0; i < totalPages; i += 1) {
+      const pageIndex = i;
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      dot.addEventListener('click', () => {
+        currentPage = pageIndex;
+        updateSellerCarousel();
+      });
+      topSellerDotsContainer.appendChild(dot);
+    }
+
+    const navigationDots = topSellerDotsContainer.querySelectorAll('.dot');
+    navigationDots.forEach((dot, index) => {
+      if (index === currentPage) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
 
   function updateSellerCarousel() {
     const startIndex = currentPage * itemsPerPage;
@@ -80,35 +107,16 @@ function createTopSellerCarousel(items) {
       item.style.display = index >= startIndex && index < endIndex ? 'block' : 'none';
     });
 
-    const naigationDots = topSellerDotsContainer.querySelectorAll('.dot');
-    naigationDots.forEach((dot, index) => {
-      if (index === currentPage) {
-        dot.classList.add('active');
-      } else {
-        dot.classList.remove('active');
-      }
-    });
+    updateDots();
   }
 
-  function updateCurrentPage(pageIndex) {
-    currentPage = pageIndex;
-  }
-
-  function createDots() {
-    for (let i = 0; i < totalPages; i += 1) {
-      const pageIndex = i;
-      const dot = document.createElement('span');
-      dot.classList.add('dot');
-      dot.addEventListener('click', () => {
-        updateCurrentPage(pageIndex);
-        updateSellerCarousel();
-      });
-      topSellerDotsContainer.appendChild(dot);
-    }
-  }
-
-  createDots();
+  updateItemsPerPage();
   updateSellerCarousel();
+
+  window.addEventListener('resize', () => {
+    updateItemsPerPage();
+    updateSellerCarousel();
+  });
 
   return topSellerCarouselContainer;
 }
