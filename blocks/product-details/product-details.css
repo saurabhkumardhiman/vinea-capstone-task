@@ -1,17 +1,20 @@
 .product-details {
     margin-top: 80px;
+    padding: 24px;
+    box-shadow: 0 0 10px 0 #00000042;
 }
 
 .product-details > div {
-    text-align: center;
+    display: block;
+    gap: 24px;
 }
 
 .product-details > div > div > p {
     font-size: 20px;
-    margin: 0;
-    padding-bottom: 8px;
-    justify-content: center;
-    align-items: center;
+}
+
+.product-details > div > div > p:not(:first-of-type) {
+    font-size: 16px;
 }
 
 .product-details > div > div > ul {
@@ -23,10 +26,9 @@
     font-size: 16px;
 }
 
-.product-details > div > div > p picture img {
+.product-details > div > div > picture img {
     width: 100%;
     height: auto;
-    border: 1px solid #CCC;
 }
 
 .product-details > div > div > p .icon {
@@ -44,6 +46,10 @@
 }
 
 @media (width >= 900px) {
+    .product-details > div {
+        display: flex;
+    }
+
     .product-details > div > div > p picture img {
         width: 50%;
     }
