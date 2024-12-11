@@ -13,16 +13,23 @@
     gap: 20px;
 }
 
+.top-sellers-item {
+    list-style: none;
+}
+
 .top-sellers .top-sellers-div .top-seller-carousel-container .top-sellers-list .top-sellers-item picture img {
+    box-shadow: -3px -5px 12px 0 #00000042;
     border: 1px solid #CCC;
     aspect-ratio: 3/4;
     width: 98%;
     height: 45%;
+    border-radius: 12px;
 }
 
 .top-sellers .top-sellers-div .top-seller-carousel-container .top-sellers-list .top-sellers-item p.top-sellers-title {
     font-size: 16px;
-    color: #202020;
+    font-weight: 600;
+    color: #000;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -31,7 +38,7 @@
 }
 
 .top-sellers .top-sellers-div .top-seller-carousel-container .top-sellers-list .top-sellers-item p.top-sellers-description {
-    color: grey;
+    color: #202020;
     font-size: 14px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -41,18 +48,18 @@
 }
 
 .top-sellers .top-sellers-div .top-seller-carousel-container .top-sellers-list .top-sellers-item a {
-    font-size: 14px;
-    background-color: #2954FF;
-    color: #FFF;
-    padding: 5px 8px;
+    font-size: 16px;
+    color: #2954FF;
+    padding: 0;
     border-radius: 25px;
+    font-weight: 500;
 }
 
 .top-sellers .top-sellers-div .top-seller-carousel-container .top-sellers-list .top-sellers-item .wishlist-icon {
     font-size: 28px;
     position: relative;
     top: 5px;
-    padding-left: 8px;
+    padding-left: 4px;
     display: inline-block;
 }
 
@@ -65,10 +72,6 @@
 .top-seller-carousel-wrapper {
     display: flex;
     transition: transform 0.3s ease;
-}
-
-.top-sellers-item {
-    list-style: none;
 }
 
 .carousel-button {
