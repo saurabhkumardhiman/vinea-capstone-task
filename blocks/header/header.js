@@ -185,7 +185,9 @@ export default async function decorate(block) {
     + '</div>';
   block.append(navWrapper);
 
-  mobileNavView();
+  if (window.innerWidth <= 900) {
+    mobileNavView();
+  }
 }
 
 window.onscroll = function () {
