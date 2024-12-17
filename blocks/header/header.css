@@ -104,6 +104,8 @@ header nav[aria-expanded='true'] .section.nav-tools p {
   bottom: 0;
   padding-top: 24px;
   background-color: #FFF;
+  width: 100%;
+  padding-bottom: 24px;
 }
 
 header nav[aria-expanded='true'] .section.nav-tools p span {
@@ -459,6 +461,7 @@ header nav .nav-tools {
   header nav[aria-expanded='true'] .section.nav-tools p {
     position: static;
     padding-top: 0;
+    padding-bottom: 0;
   }
   
   header nav[aria-expanded='true'] .section.nav-tools p span {
