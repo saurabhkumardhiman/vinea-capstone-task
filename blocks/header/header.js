@@ -126,6 +126,23 @@ function mobileNavView() {
   }
 }
 
+function hideInMobileView() {
+  const headerLabel = document.querySelectorAll('.header .nav-wrapper .section.nav-tools p');
+  headerLabel.forEach((el) => {
+    const navElement = el.closest('nav');
+    if (navElement) {
+      const ariaExpanded = navElement.getAttribute('aria-expanded');
+      if (ariaExpanded === 'false') {
+        el.childNodes.forEach((child) => {
+          if (child.nodeType === Node.TEXT_NODE) {
+            child.textContent = '';
+          }
+        });
+      }
+    }
+  });
+}
+
 /**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -208,6 +225,7 @@ export default async function decorate(block) {
 
   if (window.innerWidth <= 900) {
     mobileNavView();
+    hideInMobileView();
   }
 }
 
